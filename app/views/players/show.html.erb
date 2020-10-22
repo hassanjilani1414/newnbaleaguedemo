@@ -1,0 +1,19 @@
+<h1>this is show method <%=@player.first_name %></h1>
+<table align="centered">
+<thead>
+<tr>
+  <td>First Name</td>
+  <td>Last Name</td>
+
+</tr>
+</thead>
+<tbody>
+
+
+
+  <tr>
+    <td><%= @player.first_name %></td>
+    <td><%= @player.last_name %></td>
+</tbody>
+</table>
+<%= link_to "Home", root_path %>

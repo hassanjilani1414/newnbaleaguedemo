@@ -1,0 +1,27 @@
+<h1> There are <%= @players.count %> players in our team</h1>
+<table>
+  <thead>
+      <tr>
+        <td>First Name</td>
+        <td>Last Name</td>
+        <td>Actions</td>
+      </tr>      
+  </thead>
+  <tbody>
+        <%@players.each do |player|%>
+
+
+        <tr>
+          <td><%= player.first_name %></td>
+          <td><%= player.last_name %></td>
+          <td>
+            <%= link_to "Show Profile", player_path(player.id) %> |
+            <%= link_to "Edit Profile", player_edit_path(player.id) %> |
+            <%= link_to "DELETE",player_path(player.id),data = { confirm: "Are you sure?", method: :delete }%>
+
+          </td>
+        </tr>
+  <% end %>
+  </tbody>
+</table>
+<%= link_to "New Player",players_new_path %>
