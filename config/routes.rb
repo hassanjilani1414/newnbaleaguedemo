@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  root "players#index"
+  resources :users, only:[:index,:create]
+  resources :sessions, only: [:create]
+  root "users#index"
   get "players"=>"players#index"
   get "players/new"=> "players#new"
   post "players"=> "players#create"
@@ -7,4 +9,5 @@ Rails.application.routes.draw do
   get "players/:id/edit" => "players#edit",as: "player_edit"
   patch "players/:id" => "players#update"
   delete "players/:id" => "players#delete"
+  get "log_out" =>"sessions#destroy"
 end
